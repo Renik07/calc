@@ -152,9 +152,7 @@ function darkMode() {
 	const body = document.body,
 				container = document.querySelector('.container'),
 				item = document.querySelectorAll('.item'),
-				itemInput = document.querySelectorAll('.item.input'),
-				inputHold = document.querySelectorAll('.dark-item.input::placeholder');
-
+				itemInput = document.querySelector('.item.input');
 	
 	body.classList.toggle('dark-body');
 	container.classList.toggle('dark-container');
@@ -163,9 +161,7 @@ function darkMode() {
 		item.classList.toggle('dark-item');
 	});
 
-	itemInput.classList.toggle('dark-item.input');
-	inputHold.classList.toggle('dark-item.input::placeholder');
-
+	itemInput.classList.toggle('dark-item dark-item.input');
 }
 
 checkBox.addEventListener('click', darkMode);
