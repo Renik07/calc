@@ -26,6 +26,9 @@ function equal() {
 		tempVar = '';
 		return;
 	}
+	if (eval(input.value) == Infinity) {
+		input.value = '0';
+	}
 	if (input.value) {
 		input.value = eval(input.value);
 	}
@@ -47,7 +50,6 @@ function percent() {
 }
 
 // switch rad / deg
-
 function radOrDeg() {
 	if (unitOfMeasure.textContent == 'deg') {
 		unitOfMeasure.textContent = 'rad'
@@ -57,7 +59,6 @@ function radOrDeg() {
 }
 
 // trigonometry
-
 function trig(name) {
 	if (input.value) {
 		switch(name) {
@@ -100,7 +101,6 @@ function trig(name) {
 }
 
 // logarithms
-
 function log (name) {
 	if (input.value) {
 		switch(name) {
@@ -144,3 +144,28 @@ function getRecursion(n) {
 function factorial() {
 	input.value = getRecursion(input.value);
 }
+
+// dark mode
+const checkBox = document.querySelector('.switch label');
+
+function darkMode() {
+	const body = document.body,
+				container = document.querySelector('.container'),
+				item = document.querySelectorAll('.item'),
+				itemInput = document.querySelectorAll('.item.input'),
+				inputHold = document.querySelectorAll('.dark-item.input::placeholder');
+
+	
+	body.classList.toggle('dark-body');
+	container.classList.toggle('dark-container');
+
+	item.forEach(item => {
+		item.classList.toggle('dark-item');
+	});
+
+	itemInput.classList.toggle('dark-item.input');
+	inputHold.classList.toggle('dark-item.input::placeholder');
+
+}
+
+checkBox.addEventListener('click', darkMode);

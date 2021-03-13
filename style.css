@@ -65,8 +65,8 @@ body {
 }
 .switch label::before {
 	content: '';
-	width: 95%;
-	height: 95%;
+	width: 100%;
+	height: 100%;
 	border-radius: inherit;
 	background: rgba(255,255,255,0);
 	opacity: 0;
@@ -74,14 +74,12 @@ body {
 }
 .switch input:checked ~ label::before {
 	width: 100%;
-	height: 101%;
+	height: 100%;
 	opacity: 1;
-	background: #E4EBF5;
-
 }
 .switch input:checked ~ label::after {
+	display: block;
 	left: 57%; 
-	/* background: #9baacf; */
 	background: linear-gradient(330deg, #5b0eeb 0%, #6d5dfc 50%, #8abdff 100%);
 }
 
@@ -91,6 +89,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: #000;
 	font-size: 22px;
 	width: 60px;
 	height: 60px;
@@ -110,6 +109,7 @@ body {
 }
 
 .item.input {
+	display: block;
 	width: 100%;
 	outline: none;
 	grid-column: 1/-1;
@@ -131,4 +131,32 @@ body {
 }
 .item.equal:active {
 	color: #5b0eeb;
+}
+
+/* dark mode */
+
+.dark-body {
+	transition: all .4s ease;
+	background: rgba(0, 0, 0, 0.753);
+}
+.dark-container {
+	transition: all .4s ease;
+  box-shadow:.8rem .8rem 1.4rem #676b77, 
+            -.2rem -.2rem 1.8rem rgb(133, 133, 133);
+}
+.dark-item {
+	transition: all .4s ease;
+	color: #fff;
+}
+.dark-item.input {
+	transition: all .4s ease;
+	color: #fff;
+}
+.dark-item.input::placeholder {
+	transition: all .4s ease;
+	color: #fff;
+}
+.switch input:checked ~ label::after {
+	left: 57%; 
+	background: #E4EBF5;
 }
