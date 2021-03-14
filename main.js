@@ -17,21 +17,39 @@ function back() {
 }
 
 function equal() {
-	// line 122
+	// line 140
+	let regExpPlus = /\+{2}/,
+			regExpMinus = /\-{2}/,
+			regExpDivide = /\/{2}/,
+			regExpMultiply = /\*{2}/,
+			regExpSepar = /\,{2}/;
+
 	if (input.value.includes('^')) {
-		let tmp = input.value.split('^');
-		let num = eval(tempVar),
-					degree = +tmp[1];
+		let tmp = input.value.split('^'),
+				num = eval(tempVar),
+				degree = +tmp[1];
+
 		input.value = Math.pow(num, degree);
 		tempVar = '';
 		return;
 	}
+
+	if (regExpPlus.test(input.value) || regExpMinus.test(input.value)
+		|| regExpMinus.test(input.value) || regExpDivide.test(input.value)
+		|| regExpMultiply.test(input.value) || regExpSepar.test(input.value)) {
+			input.value = "entry error";
+	}
+
 	if (eval(input.value) == Infinity) {
 		input.value = '0';
 	}
+	
 	if (input.value) {
 		input.value = eval(input.value);
 	}
+
+	
+	console.log(regExp);
 }
 
 // Pi / e
@@ -119,7 +137,7 @@ function log (name) {
 function operations(name) {
 	switch(name) {
 		case '^x':
-			// line 21-27
+			// line 27-34
 			tempVar = input.value;
 			input.value += '^';
 			break;
@@ -161,7 +179,7 @@ function darkMode() {
 		item.classList.toggle('dark-item');
 	});
 
-	itemInput.classList.toggle('dark-item dark-item.input');
+	itemInput.classList.toggle('dark-item.input');
 }
 
 checkBox.addEventListener('click', darkMode);
