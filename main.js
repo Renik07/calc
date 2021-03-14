@@ -17,12 +17,12 @@ function back() {
 }
 
 function equal() {
-	// line 140
+	// line 138
 	let regExpPlus = /\+{2}/,
 			regExpMinus = /\-{2}/,
 			regExpDivide = /\/{2}/,
 			regExpMultiply = /\*{2}/,
-			regExpSepar = /\,{2}/;
+			regExpSepar = /\.{2}/;
 
 	if (input.value.includes('^')) {
 		let tmp = input.value.split('^'),
@@ -48,8 +48,6 @@ function equal() {
 		input.value = eval(input.value);
 	}
 
-	
-	console.log(regExp);
 }
 
 // Pi / e
